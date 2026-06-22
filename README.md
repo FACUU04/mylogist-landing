@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📦 MyLogist
 
-## Getting Started
+> El control de tu inventario, más inteligente y en tiempo real.
 
-First, run the development server:
+MyLogist es un sistema de gestión de inventarios (SaaS) diseñado para optimizar el control de stock, centralizar la información de productos y proporcionar métricas precisas para la toma de decisiones logísticas. Construido con una arquitectura robusta en la nube para garantizar alta disponibilidad y rendimiento.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Características Principales
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+*   **Datos en Tiempo Real:** Actualización instantánea del stock para evitar quiebres de inventario.
+*   **Gestión Centralizada:** Control de proveedores, entradas y salidas de mercadería desde un único panel.
+*   **Búsqueda y Filtrado Avanzado:** Encuentra productos y movimientos específicos en segundos.
+*   **Alertas Inteligentes:** Notificaciones automáticas por stock bajo o mercadería estancada.
+*   **Métricas de Impacto:** Reportes claros para analizar el rendimiento logístico y financiero.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Stack Tecnológico
 
-To learn more about Next.js, take a look at the following resources:
+**Frontend (Landing Page & App):**
+*   Next.js (App Router)
+*   React
+*   Tailwind CSS
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Infraestructura & Backend:**
+*   Amazon Web Services (AWS) - Alta disponibilidad y despliegue.
+*   Docker - Contenedorización de entornos.
+*   Vercel - Despliegue optimizado del frontend.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🚀 Instalación y Despliegue Local
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Sigue estos pasos para levantar el entorno de desarrollo local:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clonar el repositorio:
+    `git clone https://github.com/TU-USUARIO/mylogist.git`
+    `cd mylogist`
+
+2. Instalar las dependencias (Frontend):
+    `npm install`
+
+3. Configurar las variables de entorno:
+    Crea un archivo `.env.local` en la raíz del proyecto y agrega las variables necesarias (ver `.env.example`).
+
+4. Levantar el servidor de desarrollo:
+    `npm run dev`
+
+La aplicación estará disponible en `http://localhost:3000`.
+
+---
+
+## 🤝 Contribución
+
+Si deseas contribuir al proyecto, por favor crea un *fork* del repositorio, crea una nueva rama para tus cambios (`git checkout -b feature/nueva-funcionalidad`) y envía un *Pull Request*.
+
+---
+
+## 📄 Licencia
+
+© 2026 MyLogist. Todos los derechos reservados.
