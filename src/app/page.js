@@ -189,9 +189,16 @@ export default function Home() {
               <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
               <div className="w-3 h-3 rounded-full bg-green-500"></div>
             </div>
-            <div className="aspect-video bg-slate-900 rounded-b-xl overflow-hidden relative flex items-center justify-center border border-slate-700">
-              <span className="text-slate-500 font-medium">Acá va la screenshot de app.mylogist.com</span>
-            </div>
+            
+            {/* IMAGEN 1: MOCKUP SHOWCASE */}
+<div className="aspect-video bg-slate-900 rounded-b-xl overflow-hidden relative border border-slate-700 flex items-center justify-center">
+  <img 
+    src="/img1.png" 
+    alt="Captura del Dashboard de MyLogist" 
+    className="w-full h-full object-contain"
+  />
+</div>
+            
           </div>
         </div>
       </section>
@@ -258,9 +265,16 @@ export default function Home() {
               </ul>
             </div>
             <div className="w-full lg:w-1/2">
-              <div className="aspect-[4/3] bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden flex items-center justify-center">
-                <span className="text-slate-400">Captura de la tabla de stock</span>
-              </div>
+              
+              {/* IMAGEN 2: CAPTURA DE LA TABLA */}
+<div className="aspect-[4/3] bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden relative flex items-center justify-center">
+  <img 
+    src="/img2.png" 
+    alt="Captura de la tabla de stock" 
+    className="w-full h-full object-contain p-2"
+  />
+</div>
+
             </div>
           </div>
         </div>
@@ -278,7 +292,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
       {/* FOOTER */}
       <footer className="w-full bg-slate-900 py-12 border-t border-slate-800">
         <div className="w-full max-w-[1920px] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -302,3 +315,5 @@ export default function Home() {
 
 
 //MyLogist_26@sosa
+
+//djux wthb hfuy ttpo
