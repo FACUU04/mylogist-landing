@@ -314,6 +314,3 @@ export default function Home() {
 }
 
 
-//MyLogist_26@sosa
-
-//djux wthb hfuy ttpo
