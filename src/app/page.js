@@ -134,7 +134,18 @@ export default function Home() {
   return (
     <main className="w-full min-h-screen bg-slate-50 text-slate-800 font-sans overflow-x-hidden">
       
-      {/* Acá renderizamos el modal y le pasamos el estado */}
+      {/* Estilos para animaciones custom */}
+      <style>{`
+        @keyframes scan {
+          0%, 100% { top: 20%; opacity: 0; }
+          10%, 90% { opacity: 1; }
+          50% { top: 80%; }
+        }
+        .animate-scan {
+          animation: scan 2.5s ease-in-out infinite;
+        }
+      `}</style>
+
       <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
       {/* NAVBAR */}
@@ -145,7 +156,6 @@ export default function Home() {
           </div>
           <div className="hidden sm:flex gap-8 items-center">
             <a href="https://app.mylogist.com/login" className="text-slate-600 hover:text-blue-600 font-medium transition">Ingresar</a>
-            {/* Este botón abre el modal */}
             <button onClick={() => setIsModalOpen(true)} className="bg-orange-500 text-white px-7 py-2.5 rounded-lg font-bold hover:bg-orange-600 transition shadow-lg shadow-orange-500/30">
               Probar Gratis
             </button>
@@ -164,7 +174,6 @@ export default function Home() {
             Una plataforma diseñada para brindarte métricas de impacto y una gestión impecable. Optimizá tus procesos y tomá decisiones basadas en datos seguros.
           </p>
           <div className="mt-12 flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
-            {/* Este botón abre el modal */}
             <button onClick={() => setIsModalOpen(true)} className="bg-orange-500 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-orange-600 transition shadow-xl shadow-orange-500/20 w-full sm:w-auto">
               Comenzar mi prueba
             </button>
@@ -175,7 +184,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* MOCKUP SHOWCASE */}
+      {/* MOCKUP SHOWCASE PRINCIPAL (Dashboard General) */}
       <section className="w-full bg-slate-900 relative py-20 lg:py-32 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/20 rounded-full blur-[120px] pointer-events-none"></div>
         <div className="w-full max-w-[1920px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
@@ -190,14 +199,13 @@ export default function Home() {
               <div className="w-3 h-3 rounded-full bg-green-500"></div>
             </div>
             
-            {/* IMAGEN 1: MOCKUP SHOWCASE */}
-<div className="aspect-video bg-slate-900 rounded-b-xl overflow-hidden relative border border-slate-700 flex items-center justify-center">
-  <img 
-    src="/img1.png" 
-    alt="Captura del Dashboard de MyLogist" 
-    className="w-full h-full object-contain"
-  />
-</div>
+            <div className="aspect-video bg-slate-900 rounded-b-xl overflow-hidden relative border border-slate-700 flex items-center justify-center">
+              <img 
+                src="/MyLogist1.png" 
+                alt="Dashboard de MyLogist" 
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
             
           </div>
         </div>
@@ -236,45 +244,119 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DOUBLE COLUMN SECTION */}
-      <section className="w-full bg-slate-50 py-20 lg:py-32 overflow-hidden">
+      {/* BLOQUE 1: CONTROL DE CAJA Y TURNOS */}
+      <section className="w-full bg-slate-50 py-20 lg:py-32 overflow-hidden border-t border-slate-200/50">
         <div className="w-full max-w-[1920px] mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
             <div className="w-full lg:w-1/2">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-6">Dejá atrás las planillas <br /><span className="text-orange-500">y los errores manuales.</span></h2>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">Centralizá la información de tus productos, gestioná proveedores y controlá las entradas y salidas de mercadería desde un único panel. MyLogist está diseñado para que encuentres lo que buscás en segundos.</p>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-6">Control de caja y <br /><span className="text-orange-500">gestión de turnos.</span></h2>
+              <p className="text-lg text-slate-600 mb-8 leading-relaxed">Olvidate de los descuadres a fin del día. Iniciá cada jornada con un fondo de caja definido, controlá las operaciones y mantené un registro exacto de las ventas de cada turno.</p>
               <ul className="space-y-4">
                 <li className="flex items-center gap-4">
                   <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                   </div>
-                  <span className="text-slate-700 font-medium">Búsqueda y filtrado avanzado.</span>
+                  <span className="text-slate-700 font-medium">Apertura y cierre de turnos seguros.</span>
                 </li>
                 <li className="flex items-center gap-4">
                   <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                   </div>
-                  <span className="text-slate-700 font-medium">Historial detallado de movimientos.</span>
+                  <span className="text-slate-700 font-medium">Historial detallado de operaciones de caja.</span>
                 </li>
                 <li className="flex items-center gap-4">
                   <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                   </div>
-                  <span className="text-slate-700 font-medium">Alertas por stock bajo.</span>
+                  <span className="text-slate-700 font-medium">Prevención de errores humanos y faltantes.</span>
                 </li>
               </ul>
             </div>
             <div className="w-full lg:w-1/2">
-              
-              {/* IMAGEN 2: CAPTURA DE LA TABLA */}
-<div className="aspect-[4/3] bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden relative flex items-center justify-center">
-  <img 
-    src="/img2.png" 
-    alt="Captura de la tabla de stock" 
-    className="w-full h-full object-contain p-2"
-  />
-</div>
+              <div className="aspect-[4/3] bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden relative flex items-center justify-center">
+                <img 
+                  src="/MyLogistturnos.png" 
+                  alt="Apertura de turno en MyLogist" 
+                  className="w-full h-full object-cover p-1"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      {/* BLOQUE 2: CÁMARA COMO ESCÁNER */}
+      <section className="w-full bg-white py-20 lg:py-32 overflow-hidden">
+        <div className="w-full max-w-[1920px] mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="flex flex-col-reverse lg:flex-row items-center gap-16 lg:gap-24">
+            <div className="w-full lg:w-1/2 flex justify-center">
+              <div className="relative w-full max-w-sm aspect-square bg-slate-50 rounded-[3rem] border border-slate-100 shadow-2xl shadow-blue-900/5 flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-100/50 to-transparent"></div>
+                <div className="relative z-10 p-8 bg-white rounded-2xl shadow-sm border border-slate-100">
+                  <svg className="w-24 h-24 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 10v4c0 2.2 1.8 4 4 4h10c2.2 0 4-1.8 4-4v-4M3 10V6c0-2.2 1.8-4 4-4h10c2.2 0 4 1.8 4 4v4M3 10h18M8 14h8"></path>
+                  </svg>
+                </div>
+                {/* Láser de escáner animado */}
+                <div className="absolute left-1/4 right-1/4 h-1 bg-red-500/80 shadow-[0_0_15px_rgba(239,68,68,0.8)] z-20 rounded-full animate-scan"></div>
+              </div>
+            </div>
+            <div className="w-full lg:w-1/2">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-6">Tu celular es tu <br /><span className="text-blue-600">mejor herramienta.</span></h2>
+              <p className="text-lg text-slate-600 mb-8 leading-relaxed">No necesitás invertir en hardware costoso. MyLogist transforma la cámara de tu smartphone en un escáner profesional. Leé códigos de barras y códigos QR para ingresar o descontar mercadería en instantes.</p>
+              <ul className="space-y-4">
+                <li className="flex items-center gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                  </div>
+                  <span className="text-slate-700 font-medium">Lectura ultra rápida sin demoras.</span>
+                </li>
+                <li className="flex items-center gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                  </div>
+                  <span className="text-slate-700 font-medium">Sincronización directa con tu base de datos.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BLOQUE 3: ASISTENTE IA (CON EL MOCKUP DEL CELU) */}
+      <section className="w-full bg-slate-50 py-20 lg:py-32 overflow-hidden border-t border-slate-200/50">
+        <div className="w-full max-w-[1920px] mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+            <div className="w-full lg:w-1/2">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 font-semibold text-sm mb-6">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                Nuevo Módulo Inteligente
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-6">Tomá decisiones con <br /><span className="text-indigo-600">Asistente de IA.</span></h2>
+              <p className="text-lg text-slate-600 mb-8 leading-relaxed">El Asistente de IA integrado procesa los datos de tu inventario en tiempo real. Obtén sugerencias de compras, detecta capital inmovilizado y descubre cuáles son tus productos estrella al instante.</p>
+              <ul className="space-y-4">
+                <li className="flex items-center gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 shrink-0">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                  </div>
+                  <span className="text-slate-700 font-medium">Análisis de stock crítico y reposición.</span>
+                </li>
+                <li className="flex items-center gap-4">
+                  <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 shrink-0">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                  </div>
+                  <span className="text-slate-700 font-medium">Reportes gerenciales claros y directos.</span>
+                </li>
+              </ul>
+            </div>
+            <div className="w-full lg:w-1/2 flex justify-center relative">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[80px] pointer-events-none"></div>
+              {/* Aquí se utiliza el mockup del Asistente de IA */}
+              <img 
+                src="/mockup_celular.png" 
+                alt="Mockup del Asistente IA en el celular" 
+                className="relative z-10 max-h-[600px] object-contain drop-shadow-2xl"
+              />
             </div>
           </div>
         </div>
@@ -285,7 +367,6 @@ export default function Home() {
         <div className="w-full max-w-[1920px] mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-8">¿Listo para ordenar tu negocio?</h2>
           <p className="text-blue-100 text-xl max-w-2xl mx-auto mb-10">Unite a las empresas que ya están optimizando su inventario. Empezá hoy mismo tu prueba.</p>
-          {/* Este botón abre el modal */}
           <button onClick={() => setIsModalOpen(true)} className="bg-orange-500 text-white px-12 py-5 rounded-xl font-bold text-xl hover:bg-orange-400 transition shadow-2xl shadow-orange-500/50">
             Crear mi cuenta gratis
           </button>
@@ -301,7 +382,6 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-6 text-slate-400 text-sm">
             <a href="/terminos" className="hover:text-white transition">Términos y Condiciones</a>
             <a href="/privacidad" className="hover:text-white transition">Políticas de Privacidad</a>
-            {/* El link mailto abre el correo directo */}
             <a href="mailto:contactomylogist@gmail.com" className="hover:text-white transition">Contacto</a>
           </div>
           <p className="text-slate-500 text-sm text-center md:text-left">
@@ -312,5 +392,3 @@ export default function Home() {
     </main>
   );
 }
-
-
